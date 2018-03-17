@@ -10,9 +10,9 @@ object FlattenArray {
 
   // Alternative implementation if flatMap is allowed
   def flattenUsingFlatMap(list: List[_]): List[Any] =
-    list.flatMap(elem => elem match {
+    list.flatMap {
       case null => List()
       case innerList: List[_] => flattenUsingFlatMap(innerList)
-      case _ => List(elem)
-    })
+      case otherElem => List(otherElem)
+    }
 }
