@@ -1,8 +1,9 @@
-import java.time.LocalDate
-import java.time.LocalDateTime
+import java.time.{Duration, LocalDate, LocalDateTime}
 
 object Gigasecond {
-  def add(startDate: LocalDate): LocalDateTime = ???
+  private val gigasecond = Duration.ofSeconds(1000000000)
 
-  def add(startDateTime: LocalDateTime): LocalDateTime = ???
+  def add(start: LocalDate): LocalDateTime = add(start.atStartOfDay())
+
+  def add(start: LocalDateTime): LocalDateTime = start.plus(gigasecond)
 }
